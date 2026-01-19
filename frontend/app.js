@@ -4,35 +4,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function fetchPackages() {
     const container = document.getElementById('package-list-container');
-    const API_URL = 'http://127.0.0.1:8000/api/packages/';
+
+    const API_URL = 'https://myworldtourism.onrender.com/api/packages/';
 
     try {
         const response = await fetch(API_URL);
 
         if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
+            throw new Error(`HTTP error ${response.status}`);
         }
 
         const packages = await response.json();
+        container.innerHTML = '';
 
-        container.innerHTML = ''; // Clear loading text
-
-        if (!Array.isArray(packages) || packages.length === 0) {
-            container.innerHTML =
-                '<p>No active tour packages are available at this time.</p>';
+        if (!packages.length) {
+            container.innerHTML = '<p>No tour packages available.</p>';
             return;
         }
 
         packages.forEach(pkg => {
-            const card = createPackageCard(pkg);
-            container.appendChild(card);
+            container.appendChild(createPackageCard(pkg));
         });
 
     } catch (error) {
-        console.error('Error fetching packages:', error);
+        console.error(error);
         container.innerHTML = `
-            <p style="color: red;">
-                Error loading packages. Please check the server connection.
+            <p style="color:red;">
+                Error loading packages. Please check the server.
             </p>
         `;
     }
@@ -55,10 +53,6 @@ function createPackageCard(pkg) {
     return card;
 }
 
-function handleBooking(packageId) {
-    alert(
-        `Booking initiated for Package ID: ${packageId}\n\n` +
-        `This is a demo action.\n` +
-        `In a real application, this would redirect to the booking page.`
-    );
+function handleBooking(id) {
+    alert(`Booking started for Package ID: ${id}`);
 }

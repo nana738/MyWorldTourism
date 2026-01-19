@@ -1,52 +1,56 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f7f9fc;
+    background-color: #f4f6f9;
     margin: 0;
-    padding: 0;
 }
+
 header {
     background-color: #007bff;
     color: white;
-    padding: 20px;
+    padding: 25px;
     text-align: center;
 }
+
 #package-list-container {
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 30px auto;
     padding: 0 20px;
     display: flex;
-    flex-wrap: wrap;
     gap: 20px;
+    flex-wrap: wrap;
 }
+
 .package-card {
-    flex: 1 1 calc(33% - 20px); /* Three cards per row */
     background: white;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    width: calc(33% - 20px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
+
 .package-card h2 {
     color: #007bff;
-    margin-top: 0;
 }
+
 .price {
-    font-size: 1.5em;
-    font-weight: bold;
+    font-size: 20px;
     color: #28a745;
-    margin-bottom: 10px;
+    font-weight: bold;
+    margin: 10px 0;
 }
-.departure-list select {
-    padding: 8px;
-    border-radius: 4px;
-    margin-right: 10px;
-}
+
 .book-btn {
     background-color: #ffc107;
-    color: #333;
-    padding: 10px 15px;
     border: none;
-    border-radius: 4px;
+    padding: 10px 15px;
+    border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
-    text-decoration: none;
+}
+
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #222;
+    color: white;
 }
